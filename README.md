@@ -257,4 +257,3 @@ An example ibc metadata file contains the following structure:
       }
     ]
   }
-  ```

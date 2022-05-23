@@ -46,11 +46,15 @@
               }
             },
             "ordering": {
+
               "enum": [
                 "ordered",
                 "unordered"
               ],
               "description": "Determines if packets from a sending module must be 'ordered' or 'unordered'."
+              "type": "string",
+              "description": "Determines if packets from a sending module must be ORDERED or UNORDERED."
+
             },
             "version": {
               "type": "string",
@@ -80,6 +84,36 @@
                 "properties": {
                   "type": "string",
                   "description": "String that helps describe non-dex use cases ex: interchain accounts(ICA)."
+                "relayers": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "website": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "contact": {
+                          "type": "string"
+                        },
+                        "chain-1": {
+                          "type": "string",
+                          "description": "Relayer wallet address from chain-1"
+                        },
+                        "chain-2": {
+                          "type": "string",
+                          "description": "Relayer wallet address from chain-2"
+                        }
+                      }
+                    }
+                  ]
                 }
               }
             }
@@ -124,6 +158,7 @@
             "type": "string",
             "description": "The IBC port ID which a relevant module binds to on the corresponding chain."
           }
+
         }
       }
     }
